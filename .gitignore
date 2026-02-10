@@ -208,3 +208,6 @@ __marimo__/
 
 # ManualWorks
 api_docs/
+
+# Claude
+.claude
