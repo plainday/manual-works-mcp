@@ -89,13 +89,14 @@ Claude Desktop 메뉴에서 **File > Settings > Developer > Edit Config**를 클
 - **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
 - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
 
-서버를 먼저 실행한 후, 아래 설정을 추가합니다:
+서버를 먼저 실행한 후, 아래 설정을 추가합니다 (Node.js 필요):
 
 ```json
 {
   "mcpServers": {
     "manual-works": {
-      "url": "http://localhost:8000/mcp"
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://localhost:8000/mcp"]
     }
   }
 }
