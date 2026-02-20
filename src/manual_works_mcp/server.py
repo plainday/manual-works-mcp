@@ -4,7 +4,9 @@ from mcp.server.fastmcp import FastMCP
 
 from manual_works_mcp.api_client import ManualWorksClient
 
-mcp = FastMCP("ManualWorks")
+_host = os.environ.get("MANUALWORKS_MCP_HOST", "127.0.0.1")
+_port = int(os.environ.get("MANUALWORKS_MCP_PORT", "8000"))
+mcp = FastMCP("ManualWorks", host=_host, port=_port)
 
 
 def _get_client() -> ManualWorksClient:
@@ -154,9 +156,7 @@ def _make_snippet(text: str, keyword_lower: str, context_chars: int = 80) -> str
 
 
 def main():
-    host = os.environ.get("MANUALWORKS_MCP_HOST", "0.0.0.0")
-    port = int(os.environ.get("MANUALWORKS_MCP_PORT", "8000"))
-    mcp.run(transport="streamable-http", host=host, port=port)
+    mcp.run(transport="streamable-http")
 
 
 if __name__ == "__main__":

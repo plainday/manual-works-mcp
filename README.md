@@ -46,7 +46,7 @@ pip install -e .
 |---|---|---|
 | `MANUALWORKS_BASE_URL` | ManualWorks 서버 URL | `http://127.0.0.1:1975` |
 | `MANUALWORKS_API_UUID` | API UUID | `5b969d63e97cfec7` |
-| `MANUALWORKS_MCP_HOST` | MCP 서버 바인딩 호스트 (선택) | `0.0.0.0` (기본값) |
+| `MANUALWORKS_MCP_HOST` | MCP 서버 바인딩 호스트 (선택) | `127.0.0.1` (기본값) |
 | `MANUALWORKS_MCP_PORT` | MCP 서버 포트 (선택) | `8000` (기본값) |
 
 ## 사용법
@@ -73,7 +73,7 @@ set MANUALWORKS_API_UUID=your-api-uuid
 .venv\Scripts\python.exe -m manual_works_mcp.server
 ```
 
-서버가 시작되면 `http://0.0.0.0:8000/mcp` 에서 MCP 요청을 수신합니다.
+서버가 시작되면 `http://127.0.0.1:8000/mcp` 에서 MCP 요청을 수신합니다.
 
 ### MCP Inspector로 테스트
 
