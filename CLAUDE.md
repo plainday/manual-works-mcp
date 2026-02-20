@@ -14,7 +14,7 @@ Apache 2.0 라이선스.
 - **Protocol:** MCP (Model Context Protocol)
 - **MCP SDK:** `mcp[cli]` (FastMCP)
 - **HTTP Client:** `httpx` (async)
-- **Transport:** stdio
+- **Transport:** streamable-http (기본 `0.0.0.0:8000`)
 - **Build:** `hatchling`
 - **Package Manager:** `uv` (권장) 또는 `pip`
 
@@ -56,6 +56,8 @@ ManualWorks REST API 호출 클래스. URL 패턴: `{base_url}/r/api/{api_uuid}?
 |---|---|
 | `MANUALWORKS_BASE_URL` | ManualWorks 서버 URL (예: `http://127.0.0.1:1975`) |
 | `MANUALWORKS_API_UUID` | API UUID (예: `5b969d63e97cfec7`) |
+| `MANUALWORKS_MCP_HOST` | MCP 서버 바인딩 호스트 (기본: `0.0.0.0`) |
+| `MANUALWORKS_MCP_PORT` | MCP 서버 포트 (기본: `8000`) |
 
 ## Development Commands
 

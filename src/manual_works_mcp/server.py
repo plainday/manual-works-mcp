@@ -154,7 +154,9 @@ def _make_snippet(text: str, keyword_lower: str, context_chars: int = 80) -> str
 
 
 def main():
-    mcp.run(transport="stdio")
+    host = os.environ.get("MANUALWORKS_MCP_HOST", "0.0.0.0")
+    port = int(os.environ.get("MANUALWORKS_MCP_PORT", "8000"))
+    mcp.run(transport="streamable-http", host=host, port=port)
 
 
 if __name__ == "__main__":
