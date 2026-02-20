@@ -156,7 +156,10 @@ def _make_snippet(text: str, keyword_lower: str, context_chars: int = 80) -> str
 
 
 def main():
-    mcp.run(transport="streamable-http")
+    try:
+        mcp.run(transport="streamable-http")
+    except KeyboardInterrupt:
+        pass
 
 
 if __name__ == "__main__":
