@@ -1,6 +1,22 @@
+import logging
 import os
 
 from mcp.server.fastmcp import FastMCP
+
+_LOG_FORMAT = "%(asctime)s %(levelname)s %(name)s %(message)s"
+_LOG_DATEFMT = "%Y-%m-%d %H:%M:%S"
+
+logging.basicConfig(format=_LOG_FORMAT, datefmt=_LOG_DATEFMT, level=logging.INFO)
+
+# uvicorn 로그에도 동일한 날짜/시간 포맷 적용
+import uvicorn.config
+
+uvicorn.config.LOGGING_CONFIG["formatters"]["default"]["fmt"] = _LOG_FORMAT
+uvicorn.config.LOGGING_CONFIG["formatters"]["default"]["datefmt"] = _LOG_DATEFMT
+uvicorn.config.LOGGING_CONFIG["formatters"]["access"][
+    "fmt"
+] = "%(asctime)s %(levelname)s %(name)s %(client_addr)s %(request_line)s %(status_code)s"
+uvicorn.config.LOGGING_CONFIG["formatters"]["access"]["datefmt"] = _LOG_DATEFMT
 
 from manual_works_mcp.api_client import ManualWorksClient
 
