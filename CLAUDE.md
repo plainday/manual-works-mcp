@@ -42,6 +42,11 @@ ManualWorks REST API 호출 클래스. URL 패턴: `{base_url}/r/api/{api_uuid}?
 
 `search_documents(keyword: str)` tool 1개 등록.
 
+로깅:
+- 통일 포맷: `YYYY-MM-DD HH:MM:SS LEVEL name message`
+- uvicorn 기본 `LOGGING_CONFIG`를 패치하여 uvicorn 로그에도 동일 포맷 적용
+- `KeyboardInterrupt` 처리로 Ctrl+C 시 정상 종료
+
 검색 흐름:
 1. `DOC_LIST`로 전체 문서 목록 조회
 2. 각 문서에 대해 `DOC_GET`으로 장(chapter) 목록 조회
